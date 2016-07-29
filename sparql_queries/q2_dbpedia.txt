@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX db: <http://dbpedia.org/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?players_name ?team_name
+WHERE { 
+  
+  ?players_resource dbp:fullname ?players_name .
+  ?resource dbp:name ?players_resource .
+  ?resource dbp:clubname ?team_name .
+  ?resource rdf:type dbo:SoccerClub .
+}

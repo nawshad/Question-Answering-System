@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX db: <http://dbpedia.org/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?stadium_name ?club_name
+WHERE { 
+  ?tenant_resource dbp:clubname ?club_name .
+  ?tenant_resource rdf:type dbo:SoccerClub .
+  ?stadium dbo:tenant ?tenant_resource .
+  ?stadium dbp:stadiumName ?stadium_name .
+  ?stadium rdf:type dbo:Stadium .
+}
